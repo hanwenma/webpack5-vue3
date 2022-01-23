@@ -12,9 +12,11 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import Count from "./components/Count.vue";
 import Animation from "./components/Animation.vue";
+import { createALink } from './utils/tool.js'
+
 export default {
   name: "app",
   components: {
@@ -30,6 +32,10 @@ export default {
     const reverse = () => {
       message.value = message.value.split('').reverse().join('');
     };
+
+    onMounted(()=>{
+      createALink('//www.baidu.com','.app');
+    });
 
     return {
       message,
